@@ -85,7 +85,7 @@ namespace WebApi.Migrations
                     b.Property<int>("BranchId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Class")
+                    b.Property<int?>("Class")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DateOfBirth")
@@ -103,7 +103,7 @@ namespace WebApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("SectionId")
+                    b.Property<int?>("SectionId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");

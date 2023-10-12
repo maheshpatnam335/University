@@ -34,3 +34,14 @@ D:\UniversityApp\Backend\EntitiesAndModels\obj\Debug\net6.0\EntitiesAndModels.dl
 D:\UniversityApp\Backend\EntitiesAndModels\obj\Debug\net6.0\refint\EntitiesAndModels.dll
 D:\UniversityApp\Backend\EntitiesAndModels\obj\Debug\net6.0\EntitiesAndModels.pdb
 D:\UniversityApp\Backend\EntitiesAndModels\obj\Debug\net6.0\ref\EntitiesAndModels.dll
+C:\Users\RAM VENU\Desktop\Project1\University\Mahesh project\University-main\server\EntitiesAndModels\bin\Debug\net6.0\EntitiesAndModels.deps.json
+C:\Users\RAM VENU\Desktop\Project1\University\Mahesh project\University-main\server\EntitiesAndModels\bin\Debug\net6.0\EntitiesAndModels.dll
+C:\Users\RAM VENU\Desktop\Project1\University\Mahesh project\University-main\server\EntitiesAndModels\bin\Debug\net6.0\EntitiesAndModels.pdb
+C:\Users\RAM VENU\Desktop\Project1\University\Mahesh project\University-main\server\EntitiesAndModels\obj\Debug\net6.0\EntitiesAndModels.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\RAM VENU\Desktop\Project1\University\Mahesh project\University-main\server\EntitiesAndModels\obj\Debug\net6.0\EntitiesAndModels.AssemblyInfoInputs.cache
+C:\Users\RAM VENU\Desktop\Project1\University\Mahesh project\University-main\server\EntitiesAndModels\obj\Debug\net6.0\EntitiesAndModels.AssemblyInfo.cs
+C:\Users\RAM VENU\Desktop\Project1\University\Mahesh project\University-main\server\EntitiesAndModels\obj\Debug\net6.0\EntitiesAndModels.csproj.CoreCompileInputs.cache
+C:\Users\RAM VENU\Desktop\Project1\University\Mahesh project\University-main\server\EntitiesAndModels\obj\Debug\net6.0\EntitiesAndModels.dll
+C:\Users\RAM VENU\Desktop\Project1\University\Mahesh project\University-main\server\EntitiesAndModels\obj\Debug\net6.0\refint\EntitiesAndModels.dll
+C:\Users\RAM VENU\Desktop\Project1\University\Mahesh project\University-main\server\EntitiesAndModels\obj\Debug\net6.0\EntitiesAndModels.pdb
+C:\Users\RAM VENU\Desktop\Project1\University\Mahesh project\University-main\server\EntitiesAndModels\obj\Debug\net6.0\ref\EntitiesAndModels.dll

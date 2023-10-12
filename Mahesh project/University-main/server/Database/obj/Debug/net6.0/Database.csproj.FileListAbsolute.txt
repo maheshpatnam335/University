@@ -43,3 +43,18 @@ D:\UniversityApp\Backend\Database\obj\Debug\net6.0\Database.dll
 D:\UniversityApp\Backend\Database\obj\Debug\net6.0\refint\Database.dll
 D:\UniversityApp\Backend\Database\obj\Debug\net6.0\Database.pdb
 D:\UniversityApp\Backend\Database\obj\Debug\net6.0\ref\Database.dll
+C:\Users\RAM VENU\Desktop\Project1\University\Mahesh project\University-main\server\Database\bin\Debug\net6.0\Database.deps.json
+C:\Users\RAM VENU\Desktop\Project1\University\Mahesh project\University-main\server\Database\bin\Debug\net6.0\Database.dll
+C:\Users\RAM VENU\Desktop\Project1\University\Mahesh project\University-main\server\Database\bin\Debug\net6.0\Database.pdb
+C:\Users\RAM VENU\Desktop\Project1\University\Mahesh project\University-main\server\Database\bin\Debug\net6.0\EntitiesAndModels.dll
+C:\Users\RAM VENU\Desktop\Project1\University\Mahesh project\University-main\server\Database\bin\Debug\net6.0\EntitiesAndModels.pdb
+C:\Users\RAM VENU\Desktop\Project1\University\Mahesh project\University-main\server\Database\obj\Debug\net6.0\Database.csproj.AssemblyReference.cache
+C:\Users\RAM VENU\Desktop\Project1\University\Mahesh project\University-main\server\Database\obj\Debug\net6.0\Database.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\RAM VENU\Desktop\Project1\University\Mahesh project\University-main\server\Database\obj\Debug\net6.0\Database.AssemblyInfoInputs.cache
+C:\Users\RAM VENU\Desktop\Project1\University\Mahesh project\University-main\server\Database\obj\Debug\net6.0\Database.AssemblyInfo.cs
+C:\Users\RAM VENU\Desktop\Project1\University\Mahesh project\University-main\server\Database\obj\Debug\net6.0\Database.csproj.CoreCompileInputs.cache
+C:\Users\RAM VENU\Desktop\Project1\University\Mahesh project\University-main\server\Database\obj\Debug\net6.0\Database.csproj.CopyComplete
+C:\Users\RAM VENU\Desktop\Project1\University\Mahesh project\University-main\server\Database\obj\Debug\net6.0\Database.dll
+C:\Users\RAM VENU\Desktop\Project1\University\Mahesh project\University-main\server\Database\obj\Debug\net6.0\refint\Database.dll
+C:\Users\RAM VENU\Desktop\Project1\University\Mahesh project\University-main\server\Database\obj\Debug\net6.0\Database.pdb
+C:\Users\RAM VENU\Desktop\Project1\University\Mahesh project\University-main\server\Database\obj\Debug\net6.0\ref\Database.dll
