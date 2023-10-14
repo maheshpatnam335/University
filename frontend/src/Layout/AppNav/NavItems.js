@@ -185,5 +185,15 @@ export const ComponentsNav = [
                 to: '#/Reports',
             }
         ],
+    },
+    {
+        icon: 'pe-7s-timer',
+        label: 'Timesheet',
+        content: [
+            {
+                label: 'Loging Time',
+                to: '#/menu/timesheet',
+            }
+        ],
     }
 ];

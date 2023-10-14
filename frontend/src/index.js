@@ -23,6 +23,7 @@ const renderApp = Component => {
     <Provider store={store}>
       <HashRouter history={createBrowserHistory()}>
         <Route path={'/Login'} exact component={Login} />
+        <Route path={'/'} exact component={Login} />
         <Route path={'/Register'} component={Register} />
         <Route path={'/ChangePassword'} component={ChangePassword} />
         <Route path={'/UpdateProfile'} component={UpdateProfile} />

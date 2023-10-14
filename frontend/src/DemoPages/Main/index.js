@@ -31,7 +31,7 @@ class Main extends React.Component {
         } = this.props;
         return (
             <Fragment>
-                {/* {(this.state.logId != null && (this.state.expiry == this.state.todayDate)) ? */}
+                {(this.state.logId != null && (this.state.expiry == this.state.todayDate)) ?
                  <div className={cx(
                     { 'fixed-header': enableFixedHeader },
                     { 'fixed-sidebar': enableFixedSidebar || width < 1250 },
@@ -42,10 +42,10 @@ class Main extends React.Component {
                     <AppMain />
                     <ResizeDetector handleWidth onResize={this.onResize} />
                 </div> 
-                 {/* : <>
+                 : <>
                     {this.state.expiry != this.state.todayDate ? localStorage.removeItem('jwtToken') : ''}
-                    <Redirect to='/Login' /></> */}
-                {/* }  */}
+                    <Redirect to='/Login' /></>
+                 } 
             </Fragment>
         )
     }
