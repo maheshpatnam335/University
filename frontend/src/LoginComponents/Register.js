@@ -2,15 +2,19 @@ import axios from "axios";
 import { Form, Formik } from "formik";
 import { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
-import { Button, Card, CardBody, Col, Input, Row } from "reactstrap";
+import { Button, Card, CardBody, Col, Input, ModalBody, ModalHeader, Row } from "reactstrap";
 import * as Yup from 'yup';
 import InputBox from "../Components/InputBox";
 import PageHeader from "../Components/PageHeader";
+import { handleError, handleSuccess } from "../utils/Sweetalert";
 //import 'react-widgets/dist/css/react-widgets.css'
 
 const Register = (props) => {
     const [data, setData] = useState([{ id: 0, text: 'Select' }, { id: 1, text: 'Students' }, { id: 2, text: 'Teachers' }]);
     const [role, setRole] = useState(0);
+    const [otp, setOtp] = useState(0);
+    const [isVerified, setIsVerified] = useState(false)
+    const [otpVerified, setOtpVerified] = useState(false)
     const initialValues = {
         firstName: '',
         lastName: '',
@@ -42,10 +46,27 @@ const Register = (props) => {
                 props.history.push('/')
             })
         }
-        catch(exception) {
+        catch (exception) {
             alert('Getting errror')
         }
 
+    }
+    const Generate = async (email) => {
+        await axios.get(`https://localhost:44323/api/Register/GenerateOTP?email=${email}`).then((res) => {
+            if (res.status == 200) {
+                setOtp(res.data);
+                setIsVerified(true);
+            }
+        })
+    }
+    const Verify = (enteredotp) => {
+        if (otp == enteredotp) {
+            setOtpVerified(true);
+            handleSuccess("Successfully Verified..")
+        }
+        else {
+            handleError("Invalid OTP")
+        }
     }
     return <Fragment>
         <Card>
@@ -125,10 +146,20 @@ const Register = (props) => {
                                         <p style={{ color: 'red' }}>{errors && errors.confirmPassword}</p>
                                     </Col>
                                 </Row>
+                                {!otpVerified &&
+                                    <Row>
+                                        <Col md='4'></Col>
+                                        <Col md='2' className=''><InputBox type='number' label='OTP:' name='otp' handleChange={handleChange} /> </Col>
+                                        <Col md='1' className='mt-4'>
+                                            {!isVerified ? <Button className='bg-info' onClick={() => Generate(values.email)}>Generate</Button>
+                                                : <Button className='bg-info' onClick={() => Verify(values.otp)}>Verify</Button>}
+                                        </Col>
+                                    </Row>
+                                }
                                 <Row className="pt-4">
                                     <Col md='4' />
                                     <Col md='2'>
-                                        <Button type='submit' className="btn btn-success">Register</Button>
+                                        <Button disabled={!otpVerified} type='submit' className="btn btn-success">Register</Button>
                                     </Col>
                                     <Col md='2'><Button type="reset" className="btn btn-warning">Clear</Button></Col>
                                 </Row>

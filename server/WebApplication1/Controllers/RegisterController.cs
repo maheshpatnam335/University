@@ -31,6 +31,11 @@ namespace WebApi.Controllers
             _registerService.AddUser(_mapper.Map<Register>(register));
             return Ok();
         }
+        [HttpGet("GenerateOTP")]
+        public int GenerateOTP(string email)
+        {
+           return _registerService.SendEmail(email);
+        }
         [HttpGet("Id")]
         public IActionResult GetUserWithId(int Id)
         {
