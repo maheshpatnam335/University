@@ -21,6 +21,8 @@ namespace BusinessLogic
         dynamic Login(string email, string password, int roleId);
         TokenModel RefreshGeneratedToken(TokenModel model, int Id);
         int SendEmail(string emailToAddress);
+        public void Timesheet(TimesheetModel timesheet);
+        public DateTime? GetLogin(int id);
     }
     public class RegisterService : IRegisterService
     {
@@ -82,6 +84,38 @@ namespace BusinessLogic
                 result.AddMessageItem(new ReturnMessage(ex.Message));
             }
             return result;
+        }
+        public void Timesheet(TimesheetModel timesheet)
+        {
+            var time = new TimeSheet();
+            if (timesheet.IsPunchInOrOut == 1)
+            {
+                time.LogId = timesheet.LogId;
+                time.PunchIn=DateTime.Now;
+            }
+            if (timesheet.IsPunchInOrOut == 2)
+            {
+                time.LogId = timesheet.LogId;
+                time.PunchOut=DateTime.Now;
+            }
+
+            _universityContext.TimeSheet.Add(time);
+            _universityContext.SaveChanges();
+        }
+        public DateTime? GetLogin(int id)
+        { 
+            var list= _universityContext.TimeSheet.Where(x=>x.LogId== id &&( x.PunchIn.Date==DateTime.Now.Date
+            || x.PunchOut.Date==DateTime.Now.Date)).ToList();
+            if (list.Count > 0)
+            {
+
+                var punchIntime = list.Max(x => x.PunchIn);
+                var punchOuttime = list.Max(x => x.PunchOut);
+                var totaltime = punchOuttime - punchIntime;
+                return Convert.ToDateTime(totaltime.ToString());
+            }
+            return null;
+
         }
 
         private string GenerateString()

@@ -24,5 +24,6 @@ namespace Database
         public DbSet<Books> Books { get; set; }
         public DbSet<Events> Events { get; set; }
         public DbSet<Sports> Sports { get; set; }
+        public DbSet<TimeSheet> TimeSheet { get; set; }
     }
 }

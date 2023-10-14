@@ -31,6 +31,19 @@ namespace WebApi.Controllers
             _registerService.AddUser(_mapper.Map<Register>(register));
             return Ok();
         }
+        [HttpPost("Timesheet")]
+        public IActionResult AddTimesheet(TimesheetModel model)
+        {
+            _registerService.Timesheet(model);
+            return Ok();
+        }
+        [HttpGet("LoginTime")]
+        public IActionResult LoginTime(int id)
+        {
+            
+            return Ok(_registerService.GetLogin(id));
+        }
+
         [HttpGet("GenerateOTP")]
         public int GenerateOTP(string email)
         {
