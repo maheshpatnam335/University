@@ -5,20 +5,23 @@ import { Button, Col, Row } from 'reactstrap'
 
 function Timesheet() {
   var loggedId = localStorage.getItem('login');
-  const [min, setMin] = useState(0)
-  const [isCompleted, setIsCompleted] = useState(false)
-  const [time, setTime] = useState((new Date()).getDate())
+  const[list, setList]=useState([])
   useEffect(() => {
     axios.get(`https://localhost:44323/api/Register/LoginTime?id=${loggedId}`).then((res) => {
-      var timer = new Date(res.data);
-      debugger
-      setTime(timer.getDate())
-      setMin(timer.getMinutes())
+      setList(res.data)
     })
   }, [])
+var isPunchedIn= list.filter(c=>c.punchIn!=null);
+var isPunchedOut= list.filter(c=>c.punchOut!=null);
+if(isPunchedIn.length>0){
+  var completedTimeInHours=(new Date()).getHours()- (new Date(isPunchedIn[0].punchIn)).getHours();
+  var completedTimeInMinutes=(new Date()).getMinutes()- (new Date(isPunchedIn[0].punchIn)).getMinutes();
+  
+}
+// var hours=completedTime.getHours
 
-
-
+var totalMins = (completedTimeInHours*60+completedTimeInMinutes);
+console.log(totalMins)
   const punchIn = () => {
     const data = {
       isPunchInOrOut: 1,
@@ -31,12 +34,12 @@ function Timesheet() {
       isPunchInOrOut: 2,
       logId: localStorage.getItem('login')
     }
-    setIsCompleted(true)
+    
     axios.post('https://localhost:44323/api/Register/Timesheet', data)
   }
 
 
-  const series = [(min * 100) / 480, 100 - ((min * 100) / 480)];
+  const series = [(totalMins * 100) / 480, 100 - ((totalMins * 100) / 480)];
   const options = {
     chart: {
       width: 380,
@@ -57,44 +60,19 @@ function Timesheet() {
   }
 
 
-  console.log(time)
-  console.log(time == (new Date().getDate()))
   return (
     <div >
 
 
       <h1 className='text-center bg-success '>Timesheet</h1>
-      {/* <div className='d-flex mt-5'>
-        <Row>
-          <Col>
-            <label> From Date : </label>
-            <input type='date' name='date' className='form-control' /><br />
-          </Col>
-          <Col>
-            <label className='ms-3'>From Time : </label>
-            <input type='time' className='form-control'></input>
-          </Col>
-        </Row>
-      </div> */}
-
 
       <div className='d-flex mt-5'>
-        {/* <Row>
-
-          <Col>
-            <label> To Date : </label >
-            <input type='date' className='form-control' /><br />
-          </Col>
-          <Col> <label className='ms-4'>To Time : </label>
-            <input type='time' className='form-control'></input>
-          </Col>
-        </Row> */}
         <Row>
           <Col>
-            <Button className='bg-info' disabled={(time == (new Date().getDate())) || isCompleted} onClick={() => punchIn()}>Punch In</Button>
+            <Button className='bg-info' disabled={isPunchedIn.length !=0} onClick={() => punchIn()}>Punch In</Button>
           </Col>
           <Col>
-            <Button className='bg-info' disabled={(time != (new Date().getDate())) || isCompleted} style={{ width: '90px' }} onClick={() => punchOut()}>Punch Out</Button>
+            <Button className='bg-info' disabled={(isPunchedIn.length ==0) ||(isPunchedOut.length !=0)} style={{ width: '90px' }} onClick={() => punchOut()}>Punch Out</Button>
           </Col>
         </Row>
         <div className='ms-5 mt-5'>
