@@ -10,7 +10,7 @@ namespace EntitiesAndModels.Entities
     {
         public int Id { get; set; }
         public int LogId { get; set; }
-        public DateTime PunchIn { get; set; }
-        public DateTime PunchOut { get; set; }
+        public DateTime? PunchIn { get; set; }
+        public DateTime? PunchOut { get; set; }
     }
 }

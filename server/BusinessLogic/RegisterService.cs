@@ -22,7 +22,7 @@ namespace BusinessLogic
         TokenModel RefreshGeneratedToken(TokenModel model, int Id);
         int SendEmail(string emailToAddress);
         public void Timesheet(TimesheetModel timesheet);
-        public DateTime? GetLogin(int id);
+        public List<TimeSheet> GetLogin(int id);
     }
     public class RegisterService : IRegisterService
     {
@@ -92,29 +92,31 @@ namespace BusinessLogic
             {
                 time.LogId = timesheet.LogId;
                 time.PunchIn=DateTime.Now;
+                time.PunchOut = null;
             }
             if (timesheet.IsPunchInOrOut == 2)
             {
                 time.LogId = timesheet.LogId;
                 time.PunchOut=DateTime.Now;
+                time.PunchIn = null;
             }
 
             _universityContext.TimeSheet.Add(time);
             _universityContext.SaveChanges();
         }
-        public DateTime? GetLogin(int id)
+        public List<TimeSheet> GetLogin(int id)
         { 
-            var list= _universityContext.TimeSheet.Where(x=>x.LogId== id &&( x.PunchIn.Date==DateTime.Now.Date
-            || x.PunchOut.Date==DateTime.Now.Date)).ToList();
-            if (list.Count > 0)
-            {
+            var list= _universityContext.TimeSheet.Where(x=>x.LogId== id &&( x.PunchIn.Value.Date==DateTime.Now.Date
+            || x.PunchOut.Value.Date==DateTime.Now.Date)).ToList();
+            //if (list.Count > 0)
+            //{
 
-                var punchIntime = list.Max(x => x.PunchIn);
-                var punchOuttime = list.Max(x => x.PunchOut);
-                var totaltime = punchOuttime - punchIntime;
-                return Convert.ToDateTime(totaltime.ToString());
-            }
-            return null;
+            //    var punchIntime = list.Max(x => x.PunchIn);
+            //    var punchOuttime = list.Max(x => x.PunchOut);
+            //    var totaltime = punchOuttime - punchIntime;
+            //    return Convert.ToDateTime(totaltime.ToString());
+            //}
+            return list;
 
         }
 
